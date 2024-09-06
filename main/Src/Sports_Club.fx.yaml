@@ -1,0 +1,173 @@
+Sports_Club As screen:
+    Fill: =RGBA(255, 184, 174, 0.5)
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    Header_container_2 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Bold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =75
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =1366
+        ZIndex: =1
+
+        Header1_2 As Header:
+            DisplayMode: =DisplayMode.Edit
+            Height: =75
+            IsProfilePictureVisible: =false
+            Logo: ='sports-logo-BB73BFD7B1-seeklogo.com'
+            OnSelectLogo: =Navigate(Home_screen)
+            Title: ="Sports Club"
+            UserEmail: =User().Email
+            UserImage: =User().Image
+            UserName: =User().FullName
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+    Container_gallery As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =444
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =1228
+        X: =60
+        Y: =225
+        ZIndex: =2
+
+        "Gallery1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
+            BorderColor: =App.Theme.Colors.Darker40
+            DelayItemLoading: =true
+            Height: =Parent.Height
+            Items: =Filter('Sports Club',Or(Interested.Value=TabList1.Selected.Value,TabList1.Selected.Value="ALL Sports"))
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =90
+            Width: =Parent.Width
+            ZIndex: =1
+
+            TxtName As label:
+                Color: =RGBA(50, 49, 48, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.Name
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 86
+                X: =16
+                Y: =(Parent.TemplateHeight - (Self.Size*1.8 + txtgender.Size*1.8 + 2 + txtAge.Size*1.8)) / 2
+                ZIndex: =1
+
+            txtgender As label:
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =ThisItem.Gender.Value
+                VerticalAlign: =VerticalAlign.Top
+                Width: =TxtName.Width
+                X: =TxtName.X
+                Y: =TxtName.Y + TxtName.Height
+                ZIndex: =2
+
+            txtAge As label:
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =ThisItem.Age
+                VerticalAlign: =VerticalAlign.Top
+                Width: =TxtName.Width
+                X: =TxtName.X
+                Y: =txtgender.Y + txtgender.Height
+                ZIndex: =3
+
+            Addbtn As icon.Add:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =App.Theme.Colors.Darker30
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =50
+                Icon: =Icon.Add
+                OnSelect: =Select(Parent);NewForm(Form2);Navigate(Sports_Form)
+                Width: =50
+                X: =1060
+                Y: =33
+                ZIndex: =4
+
+            Viewbtn As icon.View:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =App.Theme.Colors.Darker30
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =50
+                Icon: =Icon.View
+                OnSelect: =Select(Parent);Navigate(Sport_display);
+                Width: =50
+                X: =1138
+                Y: =33
+                ZIndex: =5
+
+    Filter_container As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Semibold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =74
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =654
+        X: =60
+        Y: =120
+        ZIndex: =3
+
+        "TabList1 As 'Tab list'.pcfdataset":
+            DisplayMode: =DisplayMode.Edit
+            FontSize: =20
+            Height: =71
+            Items: =["ALL Sports", "Badminton", "Volley Ball","BasketBall"]
+            Width: =549
+            X: =105
+            Y: =3
+            ZIndex: =1
+
+        Label1 As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Height: =71
+            Size: =30
+            Text: ="🔎"
+            Width: =105
+            Y: =3
+            ZIndex: =2
+

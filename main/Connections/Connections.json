@@ -1,0 +1,36 @@
+{
+  "b101650c-5957-4920-beff-6a41e75f3f77": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write",
+      "providers/PowerPlatform.Governance/Operations/Delete"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/jayawan/releases/v1.0.1697/1.0.1697.3786/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://arcnas.sharepoint.com/sites/Introduction": {
+        "dataSources": {
+          "Music Club": {
+            "tableName": "24d4e517-ba04-4674-8e65-a80cca040974"
+          },
+          "Sports Club": {
+            "tableName": "7159fd27-e4e5-478c-a4c0-6401fa957c8a"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Music Club",
+      "Sports Club"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "b101650c-5957-4920-beff-6a41e75f3f77"
+  }
+}
